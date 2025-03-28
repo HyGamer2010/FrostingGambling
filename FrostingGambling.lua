@@ -1,11 +1,4 @@
 SMODS.Atlas {
-  key = 'test',
-  px = 71,
-  py = 95,
-  path = 'test.png'
-}
-
-SMODS.Atlas {
   key = 'jokers',
   px = 69,
   py = 93,
@@ -63,7 +56,7 @@ SMODS.Joker {
   key = "supersonic",
   config = {
     extra = {
-      xmult = .125,
+      xmult = .15,
       totalxmult = 1
     }
   },
@@ -353,7 +346,7 @@ SMODS.Joker {
     }
   end
 }
---Uzi
+--Uzi (Uncommon)
 SMODS.Joker{
   key = 'uzi',
   config = {
@@ -393,12 +386,12 @@ SMODS.Joker{
     }
   end
 }
---Gojo
+--Gojo (Legendary)
 SMODS.Joker{
   key = 'gojo',
   config = {
     extra = {
-      xmult = .25
+      xmult = .05
     }
   },
   atlas = 'jokers',
@@ -420,7 +413,7 @@ SMODS.Joker{
         end
       end
       return {
-        xmult = (ct * card.ability.extra.xmult)
+        xmult = 1 + (ct * card.ability.extra.xmult)
       }
     end
   end,
@@ -428,6 +421,49 @@ SMODS.Joker{
     return {
       vars = {
         card.ability.extra.xmult
+      }
+    }
+  end
+}
+--Yuji (Rare)
+SMODS.Joker{
+  key = 'yuji',
+  config = {
+    extra = {
+      mult = 1.25,
+      totalmult = 4,
+      consumeables = 20,
+    }
+  },
+  atlas = 'jokers',
+  pos = {x = 0, y = 2},
+  rarity = 3,
+  cost = 9,
+  blueprint_compat = true,
+  eternal_compat = true,
+  unlocked = true,
+  discovered = true,
+  calculate = function (self, card, context)
+    if(context.using_consumeable and card.ability.extra.consumeables > 0) then
+      card.ability.extra.totalmult = card.ability.extra.totalmult * card.ability.extra.mult
+      card.ability.extra.consumeables = card.ability.extra.consumeables - 1
+      return {
+        message = localize('yujinom'),
+        delay = .4,
+      }
+    end
+    if(context.joker_main) then
+      return {
+        mult = card.ability.extra.totalmult
+      }
+    end
+  end,
+  loc_vars = function (self, info_queue, card)
+    return {
+      vars = {
+        card.ability.extra.mult,
+        card.ability.extra.totalmult,
+        card.ability.extra.consumeables
       }
     }
   end
@@ -474,6 +510,9 @@ SMODS.Challenge {
       id = 'j_fg_gojo'
     },
     {
+      id = 'j_fg_yuji'
+    },
+    {
       id = 'j_dna'
     },
     {
@@ -518,6 +557,9 @@ SMODS.Challenge {
     },
     {
       id = 'j_fg_shadow'
+    },
+    {
+      id = 'j_fg_yuji'
     }
   },
   deck = {

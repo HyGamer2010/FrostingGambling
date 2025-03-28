@@ -86,6 +86,15 @@ return {
           "When a card is scored, gain {X:mult,C:white}X#1#{} Mult",
           "for each of that {C:attention}rank{} in {C:attention}full deck"
         }
+      },
+      j_fg_yuji = {
+        name = 'Yuji Itadori',
+        text = {
+          "The next #3# {C:attention}comsumables{} ",
+          "used multiplies Mult on this",
+          "card by #1#",
+          "{C:inactive}Currently {C:mult}+#2#{C:inactive} Mult"
+        }
       }
     }
   },
@@ -98,7 +107,8 @@ return {
       broken = "BREAK",
       killer = "DIRTY BROTHER KILLER",
       fingergun = "*Finger gun*",
-      biteme = "Bite me!"
+      biteme = "Bite me!",
+      yujinom = "*Crunch*"
     },
     v_dictionary = {
       mult = "+#1# Mult",
