@@ -92,7 +92,7 @@ return {
         text = {
           "The next #3# {C:attention}comsumables{} ",
           "used multiplies Mult on this",
-          "card by #1#",
+          "card by {C:attention}#1#X",
           "{C:inactive}Currently {C:mult}+#2#{C:inactive} Mult"
         }
       }

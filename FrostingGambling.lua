@@ -240,9 +240,13 @@ SMODS.Joker {
         return {
           chips = card.ability.extra.chips
         } 
-      end
-      if(context.other_card:is_suit("Hearts") or context.other_card:is_suit("Diamonds")) then
+      elseif(context.other_card:is_suit("Hearts") or context.other_card:is_suit("Diamonds")) then
         return {
+          mult = card.ability.extra.mult
+        }
+      elseif(true) then
+        return {
+          chips = card.ability.extra.chips,
           mult = card.ability.extra.mult
         } 
       end
