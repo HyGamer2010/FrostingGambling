@@ -70,7 +70,7 @@ SMODS.Joker {
   unlocked = true,
   discovered = true,
   calculate = function (self, card, context)
-    if(context.final_scoring_step) then
+    if(context.joker_main) then
       card.ability.extra.totalxmult = card.ability.extra.totalxmult + card.ability.extra.xmult * ((hand_chips - (hand_chips % 50)) / 50 )
       return {
         xmult = card.ability.extra.totalxmult
