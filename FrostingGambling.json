@@ -1,0 +1,13 @@
+{
+	"id": "FrostingGambling",
+	"name": "FrostingGambling",
+	"display_name": "Frosting Gambling",
+	"author": ["Frosting Shadow"],
+	"description": "Mod with jokers based on things I like.",
+	"prefix": "fg",
+	"main_file": "FrostingGambling.lua",
+	"priority": 0,
+	"badge_colour": "",
+	"badge_text_colour": "",
+	"version": "0.0.1"
+}
